@@ -20,9 +20,9 @@ def sort_nicely(l):
     l.sort(key=alphanum_key)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--input", type=str)  # rows of the image
-parser.add_argument("--img_duration", type=float, default=0.1)  # columns of the images
-parser.add_argument("--output", type=str, default="giffmaker.gif")  # columns of the images
+parser.add_argument("--input", type=str) #name of the folder where all the imgages are to make the giff
+parser.add_argument("--img_duration", type=float, default=0.1)  #img duration in the giff
+parser.add_argument("--output", type=str, default="giffmaker.gif")  #name/path of the output giff
 param = parser.parse_args()
 
 png_dir = param.input
