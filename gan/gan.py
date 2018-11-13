@@ -54,12 +54,9 @@ class GAN():
             self.combined.compile(loss='binary_crossentropy', optimizer=optimizer)
         else:
             working_directory_path = os.getcwd()
-            self.discriminator = load_model(working_directory_path + param.model_path + "/discriminator"
-                                            + param.model_version + ".h5")
-            self.generator = load_model(working_directory_path + param.model_path + "/generator"
-                                            + param.model_version + ".h5")
-            self.combined = load_model(working_directory_path + param.model_path + "/combined"
-                                            + param.model_version + ".h5")
+            self.discriminator = load_model(working_directory_path + param.model_path + "/discriminator" + ".h5")
+            self.generator = load_model(working_directory_path + param.model_path + "/generator" + ".h5")
+            self.combined = load_model(working_directory_path + param.model_path + "/combined" + ".h5")
 
         r, c = 5, 5
         np.random.seed(310)
@@ -171,7 +168,7 @@ class GAN():
                 if not os.path.exists(directory_path):
                     os.mkdir(directory_path)
                 prefix = "models/"
-                suffix = str(epoch) + ".h5"
+                suffix = ".h5"
                 self.generator.save(prefix + "generator" + suffix) #save the generator model
                 self.discriminator.save(prefix + "discriminator" + suffix) #save the discriminator model
                 self.discriminator.trainable = False
